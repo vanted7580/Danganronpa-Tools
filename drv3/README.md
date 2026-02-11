@@ -17,7 +17,8 @@ An all-in-one extractor for a bunch of the data in Danganronpa V3.
 
 ```
 usage: drv3_ex_all.py [-h] [-o <output dir>] [--log-file <log file>]
-                      [--verbose] [--no-crop]
+                      [--verbose] [--parallel {none,thread}]
+                      [--workers WORKERS] [--no-crop]
                       <input dir> [<input dir> ...]
 
 positional arguments:
@@ -30,11 +31,16 @@ optional arguments:
   --log-file <log file>
                         Override log file path.
   --verbose             Show INFO logs in the console.
+  -p {none,thread}, --parallel {none,thread}
+                        Parallel execution mode.
+  -w WORKERS, --workers WORKERS
+                        Worker threads for parallel mode.
   --no-crop             Don't crop srd textures to their display dimensions.
 ```
 
 By default, logs are written to `<output dir>/drv3_ex_all.log` and only errors
 are shown in the console.
+Stage progress percentages are also shown in the console by default.
 
 You can drag/drop directories onto the `drv3_ex_all.py` file to process them.
 If no output directory is provided (such as in a drag/drop), a "dec" directory
