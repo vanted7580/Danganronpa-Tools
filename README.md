@@ -1,9 +1,3 @@
-﻿Some miscellaneous scripts I wrote for working with data in the Danganronpa PS Vita games.
-
-The code's not meant to be super robust or anything, and there's very little
-in the way of actual error handling, so don't expect much.
-It *should* do its job, though.
-
 ## Scripts
 
 #### New Danganronpa V3
