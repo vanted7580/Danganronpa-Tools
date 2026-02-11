@@ -203,6 +203,8 @@ def read_txr(data, subdata, filename, crop = False, keep_mipmaps = False):
       
       # BC5
       elif fmt == 0x14:
+        # Pillow's BC5 decoder expects RGB output mode.
+        mode    = "RGB"
         arg     = 5
         bytespp = 16
       
@@ -239,7 +241,7 @@ def read_txr(data, subdata, filename, crop = False, keep_mipmaps = False):
     # The game seems to handle BC5 differently than Pillow.
     # I'm not 100% sure this is right, but it seems to be based on what I've seen?
     if fmt == 0x14:
-      r, g, b, a = img.split()
+      r, g, b = img.split()
       b = g.copy()
       a = Image.new("L", (width, height), 0xFF)
       img = Image.merge("RGBA", (r, g, b, a))
